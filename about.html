@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us | gelXscape studio</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <style>
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+            align-items: center;
+        }
+        @media (max-width: 768px) {
+            .about-grid { grid-template-columns: 1fr; }
+        }
+        .about-image img {
+            border-radius: 10px;
+            box-shadow: 20px 20px 0 var(--secondary-color);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav id="navbar">
+                <a href="index.html" class="logo">gelXscape studio</a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="about.html" class="active">About Us</a></li>
+                    <li><a href="services.html">Services</a></li>
+                    <li><a href="gallery.html">Gallery</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main style="padding-top: 150px;">
+        <section class="section">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image">
+                        <img src="img/about-artist.jpg" alt="The Artist">
+                    </div>
+                    <div class="about-text">
+                        <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Our Story</h2>
+                        <p>At gelXscape studio, we believe that your hands are a canvas for self-expression. Founded on a passion for minimalism and premium care, we specialize in nail art that is both understated and sophisticated.</p>
+                        <p style="margin-top: 20px;">Every set of nails we create is a blend of high-quality materials and meticulous attention to detail. Whether you're looking for classic gel polish or intricate extensions, we ensure a beautiful, long-lasting result that fits your lifestyle.</p>
+                        <a href="https://wa.me/your-number-here" class="cta-button" style="margin-top: 30px;">Let's Connect</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="logo">gelXscape studio</div>
+                <p>&copy; 2026 gelXscape studio. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="js/script.js"></script>
+</body>
+</html>
