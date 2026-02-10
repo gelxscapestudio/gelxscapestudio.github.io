@@ -12,6 +12,12 @@
     --transition: all 0.3s ease;
 }
 
+.emoji-icon {
+    font-size: 1.2em;
+    vertical-align: middle;
+    margin: 0 5px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -253,7 +259,10 @@ nav {
 }
 
 .cta-secondary {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
     padding: 15px 35px;
     background: white;
     color: #0F172A;
@@ -273,6 +282,15 @@ nav {
     .hero-content h1 {
         font-size: 3rem;
     }
+    .cta-button, .cta-secondary {
+        padding: 10px 25px;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        line-height: 1;
+        min-height: 40px; /* Ensure a consistent minimum height */
+    }
 }
 
 .hero-content p {
@@ -284,7 +302,10 @@ nav {
 }
 
 .cta-button {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    line-height: 1;
     padding: 15px 40px;
     background: var(--logo-gradient);
     color: var(--white);
