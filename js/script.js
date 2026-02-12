@@ -104,4 +104,37 @@ document.addEventListener('DOMContentLoaded', () => {
             window.open(`https://wa.me/${p1}${p2}${p3}?text=${msg}`, '_blank');
         });
     });
+    // Offer Modal Logic
+    const modal = document.getElementById("offerModal");
+    const span = document.getElementsByClassName("close-modal")[0];
+
+    if (modal) {
+        // Show modal after 1.5 seconds
+        setTimeout(() => {
+            modal.style.display = "flex";
+            // trigger reflow
+            void modal.offsetWidth;
+            modal.classList.add("show");
+        }, 1500);
+
+        // Close when clicking (x)
+        if (span) {
+            span.onclick = function() {
+                modal.classList.remove("show");
+                setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+            }
+        }
+
+        // Close when clicking outside
+        window.onclick = function(event) {
+            if (event.target == modal) {
+               modal.classList.remove("show");
+               setTimeout(() => {
+                    modal.style.display = "none";
+                }, 300);
+            }
+        }
+    }
 });
