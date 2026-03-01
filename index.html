@@ -74,6 +74,7 @@
     }
     </script>
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.css" />
     <link rel="stylesheet" href="css/style.css">
     <!-- Ionicons for icons -->
     <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
@@ -154,13 +155,8 @@
 
                             <a href="#" class="cta-button whatsapp-link">Book Now</a>
                         </div>
-                        <div class="offer-image-wrapper">
-                            <!-- Geometric accent -->
-                            <div class="geometric-shape"></div>
-                            <!-- Replaced icon with a more subtle abstract representation or image if available -->
-                             <div class="offer-icon-large">
-                                 <ion-icon name="sparkles"></ion-icon>
-                             </div>
+                        <div class="offer-image-wrapper" style="padding: 0;">
+                            <img src="img/5.jpg" alt="Special Offer" style="width: 100%; height: 100%; object-fit: cover;">
                         </div>
                     </div>
                 </div>
@@ -172,7 +168,7 @@
             <div class="container">
                 <div class="about-grid">
                     <div class="about-image">
-                        <img src="img/about-artist.jpg" alt="The Artist">
+                        <img src="img/6.jpg" alt="The Artist">
                     </div>
                     <div class="about-text">
                         <h2 style="font-size: 2.5rem; margin-bottom: 20px;">Our Story 🌸</h2>
@@ -222,28 +218,28 @@
 
                 <div class="gallery-grid">
                     <div class="gallery-item">
-                        <img src="img/gallery-1.jpg" alt="Nail Art 1">
-                        <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        <a href="img/1.JPG" data-fancybox="gallery">
+                            <img src="img/1.JPG" alt="Nail Art 1">
+                            <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        </a>
                     </div>
                     <div class="gallery-item">
-                        <img src="img/gallery-2.jpg" alt="Nail Art 2">
-                        <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        <a href="img/2.JPG" data-fancybox="gallery">
+                            <img src="img/2.JPG" alt="Nail Art 2">
+                            <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        </a>
                     </div>
                     <div class="gallery-item">
-                        <img src="img/gallery-3.jpg" alt="Nail Art 3">
-                        <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        <a href="img/3.PNG" data-fancybox="gallery">
+                            <img src="img/3.PNG" alt="Nail Art 3">
+                            <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        </a>
                     </div>
                     <div class="gallery-item">
-                        <img src="img/gallery-4.jpg" alt="Nail Art 4">
-                        <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="img/gallery-5.jpg" alt="Nail Art 5">
-                        <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
-                    </div>
-                    <div class="gallery-item">
-                        <img src="img/gallery-6.jpg" alt="Nail Art 6">
-                        <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        <a href="img/4.JPG" data-fancybox="gallery">
+                            <img src="img/4.JPG" alt="Nail Art 4">
+                            <div class="overlay"><ion-icon name="heart-outline"></ion-icon></div>
+                        </a>
                     </div>
                 </div>
 
@@ -294,6 +290,12 @@
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui@5.0/dist/fancybox/fancybox.umd.js"></script>
+    <script>
+        Fancybox.bind("[data-fancybox]", {
+            // Options go here
+        });
+    </script>
     <script src="js/script.js"></script>
 </body>
 </html>
