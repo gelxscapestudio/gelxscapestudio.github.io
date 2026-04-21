@@ -98,8 +98,8 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             // Assembling the number in parts to hide from simple scrapers
             const p1 = "+91";
-            const p2 = "95279";
-            const p3 = "52785";
+            const p2 = "82080";
+            const p3 = "10485";
             const msg = encodeURIComponent("Hi! I would like to book an appointment for nail art at gelXscape studio.");
             window.open(`https://wa.me/${p1}${p2}${p3}?text=${msg}`, '_blank');
         });
