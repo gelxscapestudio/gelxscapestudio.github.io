@@ -467,7 +467,7 @@ nav {
 
 @media (min-width: 769px) {
     .gallery-grid {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: repeat(3, 1fr);
     }
 }
 
@@ -658,6 +658,32 @@ footer {
     color: #475569;
     font-size: 1.05rem;
     line-height: 1.6;
+    transition: var(--transition);
+    white-space: pre-line;
+}
+
+.testimonial-text.truncated {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.see-more-btn {
+    background: none;
+    border: none;
+    color: var(--secondary-color);
+    font-weight: 600;
+    cursor: pointer;
+    padding: 5px 0;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+}
+
+.see-more-btn:hover {
+    color: var(--accent-color);
 }
 
 .client-info {
@@ -980,4 +1006,17 @@ footer {
 
 .close-modal:hover {
     color: #333;
+}
+
+/* Fancybox Gallery Fixes */
+.fancybox__container {
+    z-index: 2500 !important;
+}
+
+.fancybox__toolbar {
+    z-index: 2501 !important;
+}
+
+.fancybox__content {
+    z-index: 2502 !important;
 }

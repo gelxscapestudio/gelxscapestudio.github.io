@@ -7,8 +7,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // Mobile Menu Toggle
     if (mobileNavToggle) {
         mobileNavToggle.addEventListener('click', () => {
+            const icon = mobileNavToggle.querySelector('ion-icon');
             navLinksContainer.classList.toggle('active-mobile');
+            
             if (navLinksContainer.classList.contains('active-mobile')) {
+                if (icon) icon.setAttribute('name', 'close-outline');
                 navLinksContainer.style.display = 'flex';
                 navLinksContainer.style.flexDirection = 'column';
                 navLinksContainer.style.position = 'absolute';
@@ -20,6 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 navLinksContainer.style.textAlign = 'center';
                 navLinksContainer.style.boxShadow = '0 5px 10px rgba(0,0,0,0.1)';
             } else {
+                if (icon) icon.setAttribute('name', 'menu-outline');
                 navLinksContainer.style.display = 'none';
             }
         });
@@ -46,6 +50,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (navLinksContainer.classList.contains('active-mobile')) {
                     navLinksContainer.classList.remove('active-mobile');
                     navLinksContainer.style.display = 'none';
+                    const icon = mobileNavToggle.querySelector('ion-icon');
+                    if (icon) icon.setAttribute('name', 'menu-outline');
                 }
             }
         });
@@ -137,4 +143,44 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
     }
+
+    // Initialize Fancybox
+    if (typeof Fancybox !== 'undefined') {
+        Fancybox.bind("[data-fancybox]", {
+            // Ensure close button is always visible and working
+            Toolbar: {
+                display: {
+                    left: ["infobar"],
+                    middle: [],
+                    right: ["iterate", "close"],
+                },
+            },
+        });
+    }
+
+    // Testimonial "See More" Logic
+    const testimonialTexts = document.querySelectorAll('.testimonial-text');
+    testimonialTexts.forEach(text => {
+        const lineHeight = parseInt(window.getComputedStyle(text).lineHeight);
+        const height = text.scrollHeight;
+        
+        // If text height is significantly more than 3 lines
+        if (height > lineHeight * 3.5) {
+            text.classList.add('truncated');
+            
+            const btn = document.createElement('button');
+            btn.className = 'see-more-btn';
+            btn.innerHTML = 'See more <ion-icon name="chevron-down-outline"></ion-icon>';
+            
+            // Insert button after the text
+            text.after(btn);
+            
+            btn.addEventListener('click', () => {
+                const isTruncated = text.classList.toggle('truncated');
+                btn.innerHTML = isTruncated ? 
+                    'See more <ion-icon name="chevron-down-outline"></ion-icon>' : 
+                    'See less <ion-icon name="chevron-up-outline"></ion-icon>';
+            });
+        }
+    });
 });
