@@ -138,14 +138,38 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         // Close when clicking outside
-        window.onclick = function(event) {
-            if (event.target == modal) {
-               modal.classList.remove("show");
-               setTimeout(() => {
-                    modal.style.display = "none";
+    }
+
+    // Glossary Modal Logic
+    const glossaryModal = document.getElementById("glossaryModal");
+    const openGlossaryBtn = document.getElementById("openGlossary");
+    const closeGlossaryBtn = document.querySelector(".close-glossary");
+
+    if (glossaryModal && openGlossaryBtn) {
+        openGlossaryBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            glossaryModal.style.display = "flex";
+            void glossaryModal.offsetWidth;
+            glossaryModal.classList.add("show");
+        });
+
+        if (closeGlossaryBtn) {
+            closeGlossaryBtn.onclick = function() {
+                glossaryModal.classList.remove("show");
+                setTimeout(() => {
+                    glossaryModal.style.display = "none";
                 }, 300);
             }
         }
+
+        window.addEventListener('click', (event) => {
+            if (event.target == glossaryModal) {
+                glossaryModal.classList.remove("show");
+                setTimeout(() => {
+                    glossaryModal.style.display = "none";
+                }, 300);
+            }
+        });
     }
 
     // Initialize Fancybox

@@ -495,12 +495,13 @@ nav {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(230, 0, 126, 0.4); /* Logo Pink with opacity */
+    background: rgba(230, 0, 126, 0.5); /* Lighter pink for hover */
     display: flex;
     align-items: center;
     justify-content: center;
     opacity: 0;
     transition: var(--transition);
+    z-index: 10;
 }
 
 .gallery-item:hover .overlay {
@@ -509,7 +510,29 @@ nav {
 
 .overlay ion-icon {
     color: white;
-    font-size: 2rem;
+    font-size: 2.5rem;
+}
+
+.gallery-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 20px 15px 10px; /* More padding at bottom for gradient */
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.6));
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    text-align: center;
+    z-index: 5;
+    pointer-events: none;
+    transition: var(--transition);
+}
+
+.gallery-item:hover .gallery-caption {
+    opacity: 0; /* Optional: hide caption on hover to show the heart clearly, or keep it */
 }
 
 /* Footer */
@@ -920,7 +943,7 @@ footer {
     background-color: #fff;
     margin: auto;
     width: 90%;
-    max-width: 450px;
+    max-width: 650px;
     border-radius: 20px;
     box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
     position: relative;
@@ -1002,6 +1025,45 @@ footer {
     transition: color 0.2s;
     z-index: 10;
     line-height: 1;
+}
+
+.glossary-items {
+    text-align: left;
+    margin: 25px 0;
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 10px;
+}
+
+.glossary-item {
+    margin-bottom: 20px;
+}
+
+.glossary-item strong {
+    display: block;
+    color: var(--accent-color);
+    font-size: 1.05rem;
+    margin-bottom: 5px;
+}
+
+.glossary-item p {
+    font-size: 0.9rem;
+    color: #475569;
+    line-height: 1.6;
+}
+
+.glossary-items::-webkit-scrollbar {
+    width: 6px;
+}
+
+.glossary-items::-webkit-scrollbar-track {
+    background: #f1f5f9;
+    border-radius: 10px;
+}
+
+.glossary-items::-webkit-scrollbar-thumb {
+    background: #cbd5e1;
+    border-radius: 10px;
 }
 
 .close-modal:hover {
