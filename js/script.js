@@ -32,26 +32,30 @@ document.addEventListener('DOMContentLoaded', () => {
     // Smooth Scrolling for Hash Links
     navLinks.forEach(link => {
         link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            const href = link.getAttribute('href');
             
-            if (targetElement) {
-                const headerOffset = 70;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+            // Only handle internal hash links
+            if (href.startsWith('#')) {
+                e.preventDefault();
+                const targetElement = document.querySelector(href);
+                
+                if (targetElement) {
+                    const headerOffset = 70;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: 'smooth'
-                });
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
 
-                // Close mobile menu if open
-                if (navLinksContainer.classList.contains('active-mobile')) {
-                    navLinksContainer.classList.remove('active-mobile');
-                    navLinksContainer.style.display = 'none';
-                    const icon = mobileNavToggle.querySelector('ion-icon');
-                    if (icon) icon.setAttribute('name', 'menu-outline');
+                    // Close mobile menu if open
+                    if (navLinksContainer.classList.contains('active-mobile')) {
+                        navLinksContainer.classList.remove('active-mobile');
+                        navLinksContainer.style.display = 'none';
+                        const icon = mobileNavToggle.querySelector('ion-icon');
+                        if (icon) icon.setAttribute('name', 'menu-outline');
+                    }
                 }
             }
         });
@@ -182,5 +186,24 @@ document.addEventListener('DOMContentLoaded', () => {
                     'See less <ion-icon name="chevron-up-outline"></ion-icon>';
             });
         }
+    });
+
+    // FAQ Accordion Logic
+    const faqItems = document.querySelectorAll('.faq-item');
+    faqItems.forEach(item => {
+        const question = item.querySelector('.faq-question');
+        question.addEventListener('click', () => {
+            const isActive = item.classList.contains('active');
+            
+            // Close other items
+            faqItems.forEach(otherItem => {
+                otherItem.classList.remove('active');
+            });
+
+            // Toggle current item
+            if (!isActive) {
+                item.classList.add('active');
+            }
+        });
     });
 });
